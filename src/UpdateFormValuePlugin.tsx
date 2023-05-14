@@ -3,7 +3,11 @@ import { $getRoot, $insertNodes } from "lexical";
 import { $generateHtmlFromNodes, $generateNodesFromDOM } from "@lexical/html";
 import { useEffect } from "react";
 
-export default function UpdateFormValuePlugin({ value }) {
+export default function UpdateFormValuePlugin({
+  value,
+}: {
+  value: string | undefined;
+}) {
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {
