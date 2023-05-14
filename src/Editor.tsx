@@ -20,6 +20,8 @@ import ListMaxIndentLevelPlugin from "./plugins/ListMaxIndentLevelPlugin";
 import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 import { useCallback, useRef } from "react";
 import { EditorState, LexicalEditor } from "lexical";
+import { MentionNode } from "./nodes/MentionNode";
+import MentionsPlugin from "./plugins/MentionsPlugin";
 
 function Placeholder() {
   return <div className="editor-placeholder">Enter some rich text...</div>;
@@ -41,6 +43,7 @@ const editorConfig = {
     QuoteNode,
     AutoLinkNode,
     LinkNode,
+    MentionNode,
   ],
 };
 
@@ -79,6 +82,7 @@ export default function Editor({
           <ListPlugin />
           <LinkPlugin />
           <AutoLinkPlugin />
+          <MentionsPlugin />
           <ListMaxIndentLevelPlugin maxDepth={7} />
           <OnChangePlugin onChange={onTextChange} />
           {/* @ts-ignore */}
